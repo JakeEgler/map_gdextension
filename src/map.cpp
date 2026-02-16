@@ -27,6 +27,11 @@ void Map::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("test_map"), &Map::test_map);
 	ClassDB::bind_method(D_METHOD("generate_map", "seed"), &Map::generate_map);
 	ClassDB::bind_method(D_METHOD("update_tilemap"), &Map::update_tilemap);
+	ClassDB::bind_method(D_METHOD("get_map_size"), &Map::get_map_size);
+}
+
+std::pair<int, int> Map::get_map_size() const {
+	return std::make_pair(width, height);
 }
 
 void Map::set_map_size(int width, int height) {

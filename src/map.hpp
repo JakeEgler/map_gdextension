@@ -1,10 +1,9 @@
 #pragma once
 
 #include "godot_cpp/classes/node2d.hpp"
-#include "godot_cpp/classes/tile_map.hpp"
-
 #include "godot_cpp/classes/tile_map_layer.hpp"
 #include "tile.hpp"
+#include <utility>
 
 class Map : public godot::Node2D {
 	GDCLASS(Map, godot::Node2D)
@@ -30,6 +29,7 @@ public:
 	void test_map();
 	void _ready();
 	Tile *get_tile(int x, int y) const;
+	std::pair<int, int> get_map_size() const;
 	void set_map_size(int width, int height);
 	void set_seed(int seed);
 	void set_tile_size(int size);
