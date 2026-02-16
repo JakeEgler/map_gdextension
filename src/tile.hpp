@@ -22,9 +22,9 @@ public:
 
 	void test_tile();
 	int get_tile_id() const;
-	int get_tile_terrain() const;
+	int get_tile_terrain() const; // 0 = land, 1 = forest, 2 = water
 	Object *get_tile_occupant() const;
 	void set_tile_id(const int id);
-	void set_tile_terrain(const int terrain);
+	void set_tile_terrain(const int terrain); // 0 = land, 1 = forest, 2 = water
 	void set_tile_occupant(Object *occupant);
 };

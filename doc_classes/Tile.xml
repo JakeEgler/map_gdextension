@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Tile" inherits="Node2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/godotengine/godot/master/doc/class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="test_tile">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="occupied_by" type="Object" setter="set_tile_occupant" getter="get_tile_occupant">
+		</member>
+		<member name="terrain" type="int" setter="set_tile_terrain" getter="get_tile_terrain" default="0">
+		</member>
+		<member name="tile_id" type="int" setter="set_tile_id" getter="get_tile_id" default="0">
+		</member>
+	</members>
+</class>

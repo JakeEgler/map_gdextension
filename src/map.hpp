@@ -29,7 +29,7 @@ public:
 	void test_map();
 	void _ready();
 	Tile *get_tile(int x, int y) const;
-	std::pair<int, int> get_map_size() const;
+	//std::pair<int, int> get_map_size() const;
 	void set_map_size(int width, int height);
 	void set_seed(int seed);
 	void set_tile_size(int size);

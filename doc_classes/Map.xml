@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Map" inherits="Node2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/godotengine/godot/master/doc/class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="generate_map">
+			<return type="void" />
+			<param index="0" name="seed" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tile" qualifiers="const">
+			<return type="Tile" />
+			<param index="0" name="x" type="int" />
+			<param index="1" name="y" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_map_size">
+			<return type="void" />
+			<param index="0" name="width" type="int" />
+			<param index="1" name="height" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_seed">
+			<return type="void" />
+			<param index="0" name="seed" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="test_map">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="update_tilemap">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>
