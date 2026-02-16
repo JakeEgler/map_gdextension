@@ -5,6 +5,7 @@
 #include "godot_cpp/variant/utility_functions.hpp"
 #include "godot_cpp/variant/vector2i.hpp"
 #include "tile.hpp"
+#include <godot_cpp/classes/canvas_item.hpp>
 #include <godot_cpp/classes/resource_loader.hpp>
 #include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/classes/tile_map_layer.hpp>
@@ -39,33 +40,49 @@ void Map::set_tile_size(int size) {
 }
 
 void Map::create_tilemap() {
-	UtilityFunctions::print("Creating new TileMapLayer");
-	if (!tilemap) {
-		// TileMapLayer
-		tilemap = memnew(godot::TileMapLayer);
-		tilemap->set_name("TileMapLayer");
-		add_child(tilemap);
+	if (tilemap)
+		return;
 
-		// TileSet
-		Ref<TileSet> tileset;
-		tileset.instantiate();
-		tilemap->set_tile_set(tileset);
+	tilemap = memnew(TileMapLayer);
+	tilemap->set_name("TileMapLayer");
+	add_child(tilemap);
 
-		// Atlas
-		Ref<TileSetAtlasSource> atlas;
-		atlas.instantiate();
+	tilemap->set_texture_filter(CanvasItem::TEXTURE_FILTER_NEAREST);
 
-		Ref<Texture2D> texture = ResourceLoader::get_singleton()->load("res://assets/terrain_texture.png");
-		atlas->set_texture(texture);
+	Ref<TileSet> tileset;
+	tileset.instantiate();
 
-		atlas->set_texture_region_size(Vector2i(16, 16));
+	Ref<TileSetAtlasSource> atlas;
+	atlas.instantiate();
 
-		int source_id = tileset->add_source(atlas);
+	Ref<Texture2D> texture =
+			ResourceLoader::get_singleton()->load("res://assets/terrain_texture.png");
 
-		tilemap->set_tile_set(tileset);
+	atlas->set_texture(texture);
+	atlas->set_texture_region_size(Vector2i(16, 16));
 
-		UtilityFunctions::print("TileMapLayer + TileSet created");
+	// 🔥 CREATE TILES IN ATLAS
+	Vector2i texture_size = texture->get_size();
+	Vector2i region_size = Vector2i(16, 16);
+
+	int columns = texture_size.x / region_size.x;
+	int rows = texture_size.y / region_size.y;
+
+	UtilityFunctions::print("Texture size: ", texture_size);
+	UtilityFunctions::print("Region size: ", region_size);
+	UtilityFunctions::print("Columns: ", columns);
+	UtilityFunctions::print("Rows: ", rows);
+
+	for (int y = 0; y < rows; y++) {
+		for (int x = 0; x < columns; x++) {
+			atlas->create_tile(Vector2i(x, y));
+		}
 	}
+
+	tileset->add_source(atlas);
+	tilemap->set_tile_set(tileset);
+
+	UtilityFunctions::print("TileMapLayer fully configured");
 }
 
 void Map::set_seed(int seed) { this->seed = seed; }
@@ -137,11 +154,11 @@ void Map::update_tilemap() {
 			Vector2i atlas_coords;
 
 			if (terrain == 0) {
-				atlas_coords = Vector2i(0, 0); // Land
+				atlas_coords = Vector2i(0, 1); // Land
 			} else if (terrain == 1) {
-				atlas_coords = Vector2i(1, 0); // Forest
+				atlas_coords = Vector2i(0, 0); // Forest
 			} else if (terrain == 2) {
-				atlas_coords = Vector2i(2, 0); // Water
+				atlas_coords = Vector2i(1, 0); // Water
 			}
 
 			tilemap->set_cell(Vector2i(x, y), 0, atlas_coords, 0);

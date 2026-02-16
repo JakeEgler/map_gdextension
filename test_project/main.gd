@@ -6,6 +6,3 @@ func _ready() -> void:
 	
 	var tile:Tile = Tile.new()
 	tile.test_tile()
-
-	#map.generate_map(67)
-	#map.update_tilemap()
