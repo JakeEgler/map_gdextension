@@ -61,7 +61,6 @@ void Map::create_tilemap() {
 	atlas->set_texture(texture);
 	atlas->set_texture_region_size(Vector2i(16, 16));
 
-	// 🔥 CREATE TILES IN ATLAS
 	Vector2i texture_size = texture->get_size();
 	Vector2i region_size = Vector2i(16, 16);
 
