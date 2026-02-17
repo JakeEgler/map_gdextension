@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://btva2p4eyenpb"]
+
+[ext_resource type="Texture2D" uid="uid://t7kiv21tkhdg" path="res://assets/Basic Asset Pack/Basic Monster Animations/Murky Slaad/MurkySlaad.png" id="1_jggp5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unwgv"]
+atlas = ExtResource("1_jggp5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph33v"]
+atlas = ExtResource("1_jggp5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aam4d"]
+atlas = ExtResource("1_jggp5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pey6d"]
+atlas = ExtResource("1_jggp5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hkt3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unwgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph33v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aam4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pey6d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}]
+
+[node name="Enemy" type="Enemy" unique_id=1954454080]
+attack_type = 1
+applies_web = true
+movement = 3
+max_health = 3
+current_health = 3
+name = "Scorpion"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1340338661]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hkt3l")
+animation = &"idle"
+frame_progress = 0.8901189

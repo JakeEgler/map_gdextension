@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://d2fqamboyucp0"]
+
+[ext_resource type="Texture2D" uid="uid://cssmc5462f58h" path="res://assets/Basic Asset Pack/Basic Monster Animations/Death Slime/DeathSlime.png" id="1_3seq5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhccg"]
+atlas = ExtResource("1_3seq5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12c5c"]
+atlas = ExtResource("1_3seq5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys71r"]
+atlas = ExtResource("1_3seq5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h8oc"]
+atlas = ExtResource("1_3seq5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqhsf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhccg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12c5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys71r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h8oc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}]
+
+[node name="Enemy" type="Enemy" unique_id=1480144464]
+attack_type = 1
+attack_damage = 3
+applies_web = true
+is_leaper = true
+movement = 4
+max_health = 1
+current_health = 1
+name = "Leaper"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1741541373]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_mqhsf")
+animation = &"idle"
+frame_progress = 0.73882633

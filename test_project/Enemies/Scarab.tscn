@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://qfgyhsy6l5u8"]
+
+[ext_resource type="Texture2D" uid="uid://d3fg4qvbeq7fp" path="res://assets/Basic Asset Pack/Basic Humanoid Animations/goblin archer/GoblinArcher.png" id="1_qbuj3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dhnt"]
+atlas = ExtResource("1_qbuj3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmq3x"]
+atlas = ExtResource("1_qbuj3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvvdx"]
+atlas = ExtResource("1_qbuj3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58ggp"]
+atlas = ExtResource("1_qbuj3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ceq6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dhnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmq3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvvdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58ggp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}]
+
+[node name="Enemy" type="Enemy" unique_id=1399763072]
+attack_range = 12
+attack_type = 2
+movement = 3
+max_health = 2
+current_health = 2
+name = "Scarab"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1381514045]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ceq6n")
+animation = &"idle"
+frame_progress = 0.92927295

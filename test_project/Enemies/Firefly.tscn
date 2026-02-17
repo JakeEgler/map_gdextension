@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cfhulbxrg6aah"]
+
+[ext_resource type="Texture2D" uid="uid://b8wa76f3uisat" path="res://assets/Basic Asset Pack/Basic Humanoid Animations/lizardfolk archer/LizardfolkArcher.png" id="1_j5k8r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idt1t"]
+atlas = ExtResource("1_j5k8r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axuie"]
+atlas = ExtResource("1_j5k8r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpi68"]
+atlas = ExtResource("1_j5k8r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voh0n"]
+atlas = ExtResource("1_j5k8r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q4i5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idt1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axuie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpi68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voh0n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}]
+
+[node name="Enemy" type="Enemy" unique_id=1191575756]
+attack_range = 10
+attack_type = 3
+movement = 2
+max_health = 3
+current_health = 3
+name = "Firefly"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2065444120]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7q4i5")
+animation = &"idle"

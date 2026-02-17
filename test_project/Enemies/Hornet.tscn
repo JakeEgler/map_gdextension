@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b6qpeivwfg8jq"]
+
+[ext_resource type="Texture2D" uid="uid://c5kcy47sqehlu" path="res://assets/Basic Asset Pack/Basic Dragon Animations/Viridian Drake/ViridianDrake.png" id="1_rfker"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at5pc"]
+atlas = ExtResource("1_rfker")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n0ng"]
+atlas = ExtResource("1_rfker")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqj0w"]
+atlas = ExtResource("1_rfker")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nklm"]
+atlas = ExtResource("1_rfker")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wl7w2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at5pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n0ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqj0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nklm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}]
+
+[node name="Enemy" type="Enemy" unique_id=1501637148]
+is_flying = true
+movement = 5
+max_health = 2
+current_health = 2
+name = "Hornet"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=438574921]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_wl7w2")
+animation = &"idle"
+frame_progress = 0.19554898

@@ -16,9 +16,7 @@ using namespace godot;
 
 Map::Map() {}
 
-void Map::test_map() {
-	UtilityFunctions::print("Testing map");
-}
+void Map::test_map() { UtilityFunctions::print("Testing map"); }
 
 void Map::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_tile", "x", "y"), &Map::get_tile);

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg6iuf8xm8mm3"]
+
+[ext_resource type="PackedScene" uid="uid://cfhulbxrg6aah" path="res://Enemies/Firefly.tscn" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://cnt5wau425xfc" path="res://assets/mech_tank.png" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://b6qpeivwfg8jq" path="res://Enemies/Hornet.tscn" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://bqfhecvd7i0ob" path="res://assets/mech_artillery.png" id="4_kdubu"]
+[ext_resource type="Texture2D" uid="uid://b1o4hmw5a6svc" path="res://assets/mech_scout.png" id="5_d21ai"]
+[ext_resource type="Texture2D" uid="uid://emnntt087sd" path="res://assets/mech_heavy.png" id="6_rj586"]
+
+[node name="GameManager" type="GameManager"]
+
+[node name="Map" type="Map" parent="."]
+
+[node name="Enemy" parent="." groups=["enemies"] instance=ExtResource("1_wtcfe")]
+pixel_position = Vector2(120, 72)
+grid_position = [7, 4]
+position = Vector2(120, 72)
+
+[node name="Enemy2" parent="." groups=["enemies"] instance=ExtResource("2_epypp")]
+pixel_position = Vector2(8, 24)
+grid_position = [0, 1]
+position = Vector2(8, 24)
+
+[node name="TankMech" type="TankMech" parent="." groups=["player"]]
+pixel_position = Vector2(120, 88)
+grid_position = [7, 5]
+current_health = 3
+position = Vector2(120, 88)
+scale = Vector2(0.3625, 0.3125)
+texture = ExtResource("2_0e48y")
+
+[node name="ArtilleryMech" type="ArtilleryMech" parent="."]
+visible = false
+texture = ExtResource("4_kdubu")
+
+[node name="ScoutMech" type="ScoutMech" parent="."]
+visible = false
+texture = ExtResource("5_d21ai")
+
+[node name="HeavyMech" type="HeavyMech" parent="."]
+visible = false
+texture = ExtResource("6_rj586")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(63.000004, 65)
+scale = Vector2(0.3625, 0.3125)
+zoom = Vector2(4, 4)
