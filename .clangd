@@ -1,3 +1,4 @@
 CompileFlags:
   Add: -Wno-unknown-warning-option
   Remove: [-m*, -f*]
+  Add: [-I/data/data/com.termux/files/usr/include]
